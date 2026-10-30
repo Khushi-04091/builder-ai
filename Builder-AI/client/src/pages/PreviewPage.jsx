@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PreviewPage = () => {
+const dx  = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const PreviewPage = () => {
   )
 }
 
-export default PreviewPage
+export default dx 
