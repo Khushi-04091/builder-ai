@@ -59,6 +59,7 @@ function SandpackFileWatcher({ onLiveFilesChange }) {
 }
 
 const PreviewPanel = ({ project, activeFile, showCode }) => {
+    const[showErrorOverlay,setShowErrorOverlay]=useState(true)
     // Keep local state of files that update as the user types
     const [liveFiles, setLiveFiles] = useState(project.files);
 
