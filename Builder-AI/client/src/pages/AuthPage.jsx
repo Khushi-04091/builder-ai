@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { Link,useNavigate} from "react-router-dom";
 import LoginLeft from '../components/LoginLeft'
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff,Loader2} from "lucide-react";
 import{useAppContext} from '../context/AppContext'
 
 const AuthPage = ({ mode }) => {
@@ -130,7 +130,7 @@ const AuthPage = ({ mode }) => {
             text-white font-semibold hover:scale-102 disabled:opacity-40 flex
             items-center justify-center cursor-pointer mt-2 rounded-lg
             transition-all'>
-            {loading && <Loader2Icon className="animate-spin h-3.5 w-3.5 mr-2"/>}
+            {loading && <Loader2 className="animate-spin h-3.5 w-3.5 mr-2"/>}
             {isLogin?"Sign in":"Sign up"}
             </button>
 

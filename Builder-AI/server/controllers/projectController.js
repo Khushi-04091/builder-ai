@@ -3,8 +3,11 @@ import crypto from "crypto";
 import { generateProject } from "../services/ai.js";
 
 
-function hashContent(content){
-    return crypto.create.createHash("md5").update(content).digest("hex").slice(0,12)
+function hashContent(content) {
+    return crypto.createHash("md5")
+        .update(content)
+        .digest("hex")
+        .slice(0, 12);
 }
 
 //POST/api/projects
@@ -78,7 +81,7 @@ const result=await generateProject(prompt,{
     onPlan:async (plan)=>{
      console.log(`[Background AI] Plan created for project ${projectId}. Planned ${plan.files.length} files.`)  
       const fileList=plan.files.map((f)=>`- \`${f.path}\`:${f.description}`).join("\n")
-      await Project.findByIdAndUpdate(prjectId,{
+      await Project.findByIdAndUpdate(projectId,{
         name:plan.projectName||"Generated Project",
         status:"generating",
         filesPlanned:plan.files,
@@ -258,9 +261,7 @@ export async function updateProjectFiles(req,res){
 
     const filesObj={}
     for(const [path,entry] of Object.entries(project.files)){
-     if(typeof content==="string"){
-       filesObj[path] =entry.content
-     }   
+       filesObj[path]=entry.content 
     }
     res.json({
          _id:project._id,

@@ -1,4 +1,5 @@
-import React,{useEffect,useState}from 'react'
+import React, { useEffect } from 'react'
+import { useAppContext } from '../context/AppContext'
 import {useParams} from 'react-router-dom'
 import api from '../api/api'
 import Loading from '../components/Loading'
